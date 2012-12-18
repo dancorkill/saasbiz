@@ -1,7 +1,7 @@
 
 <% @posts.each do |x| %>
 	<div class="entry">
-		<a href="<%= x.url %>"><h2 class="title"><%= x.title %> (<%= x.comments.count %>)</h2></a>
+		<h2 class="title"><%= link_to x.title, x %> (<%= x.comments.count %>)</h2>
 		<p><%= x.url %></p>
 	</div>
 <% end %>
