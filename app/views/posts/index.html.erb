@@ -1,7 +1,27 @@
+<% @posts.each do |post| %>
+	<div class="entry" style="">
+		<div class="votes" style="float:left;">
+			<%= link_to post_votes_path(post, direction: "1"), :method => :post do %>
+				<i class="icon-arrow-up" onclick=""></i>
+			<% end %><br/>
 
-<% @posts.each do |x| %>
-	<div class="entry">
-		<h2 class="title"><%= link_to x.title, x %> (<%= x.comments.count %>)</h2>
-		<p><%= x.url %></p>
+			<span style="font-size:16px; margin-left:2px;"><%= post.votes_score %></span><br/>
+
+			<%= link_to post_votes_path(post, direction: "-1"), :method => :post do %>
+				<i class="icon-arrow-down"></i>
+			<% end %>
+
+		</div>
+
+		<div class="title">
+
+		<h2 class="titleheader">
+			<%= link_to post.title, post %> </h2>
+			<p><a href="<%= post.url %>" style="color:#333"><%= post.url %></a> (<%= post.comments.count %> Comments)</p>
+		</div>
+
+		
 	</div>
+
+	<div style="clear:both; margin-bottom:20px;"></div>
 <% end %>

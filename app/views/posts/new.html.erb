@@ -1,13 +1,21 @@
-<%= form_for (@post) do |f| %>
+<%= form_for(@post) do |f| %>
+	<% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<div class="inputs">
-	<%= f.label "Article Title" %>
-	<%= f.text_field :title %></br>
-	<%= f.label "URL" %>
-	<%= f.text_field :url %>
-</div>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<div class="submit">
-	<%= f.submit "Submit Boom" %>
-</div>
+	<%= label_tag(:title, "Title:") %>
+	<%= text_field(:post, :title) %><br />
+	<%= label_tag(:url, "URL:") %>
+	<%= url_field(:post, :url) %><br />
+
+	<input name="commit" type="submit" value="submit">
+
 <% end %>

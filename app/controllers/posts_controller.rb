@@ -34,6 +34,22 @@ class PostsController < ApplicationController
 			if @post.save
 				f.html { redirect_to @post, notice: 'Boom post was created' }
 			else
+				f.html { render action: "new" }
+			end
+		end
+	end
+
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+
+		respond_to do |f|
+			if @post.update_attributes(params[:post])
+			f.html { redirect_to @post, notice: 'Boom post was edited' }
+			else
 			end
 		end
 	end

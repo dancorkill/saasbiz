@@ -2,3 +2,13 @@
 	width: 400px;
 	height: 100px;
 }
+
+div .title {
+	float:left; 
+	margin-left:10px;
+}
+
+.titleheader {
+	margin-top:-3px; 
+	margin-bottom:0px;
+}
