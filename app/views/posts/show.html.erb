@@ -1,7 +1,6 @@
 <h1><a href="<%= post_url(@post) %>"><%= @post.title %></a></h1>
 <p>Comments: <%= @post.comments.count %><br/>
-	Upvotes: <%= @post.votes.count(:conditions => "direction == 1") %><br/>
-	Downvotes: <%= @post.votes.count(:conditions => "direction == -1") %>
+
 </p>
 <p><%= link_to 'edit this post', edit_post_path %></p>
 
