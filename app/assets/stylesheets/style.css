@@ -12,3 +12,7 @@ div .title {
 	margin-top:-3px; 
 	margin-bottom:0px;
 }
+
+.timeposted {
+	color: light-grey;
+}

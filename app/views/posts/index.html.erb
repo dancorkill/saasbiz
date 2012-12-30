@@ -2,14 +2,12 @@
 	<div class="entry" style="">
 		<div class="votes" style="float:left;">
 			<%= link_to post_votes_path(post, direction: 1), :method => :post do %>
-				<i class="icon-arrow-up" onclick=""></i>
-			<% end %><br/>
+				<i class="icon-arrow-up"></i><% end %><br/>
 
 			<span style="font-size:16px; margin-left:2px;"><%= post.votes_score %></span><br/>
 
 			<%= link_to post_votes_path(post, direction: -1), :method => :post do %>
-				<i class="icon-arrow-down"></i>
-			<% end %>
+				<i class="icon-arrow-down"></i><% end %>
 
 		</div>
 
@@ -17,7 +15,7 @@
 
 		<h2 class="titleheader">
 			<%= link_to post.title, post %> </h2>
-			<p><a href="<%= post.url %>" style="color:#333"><%= post.url %></a> (<%= post.comments.count %> Comments)</p>
+			<p><a href="<%= post_url(post) %>" style="color:#333"><%= post_url_no_http(post) %></a> (<%= post.comments.count %> Comments)</p>
 		</div>
 
 		

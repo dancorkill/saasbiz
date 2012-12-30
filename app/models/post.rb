@@ -12,9 +12,18 @@ class Post < ActiveRecord::Base
 	has_many :comments
 	has_many :votes
 
+	before_create :create_slug
 
 	def votes_score
 		votes.count(:conditions => ["direction = 1"]) - votes.count(:conditions => ["direction = -1"])
+	end
+
+	def to_param
+		slug
+	end
+
+	def create_slug
+		self.slug = self.title.parameterize
 	end
 
 end

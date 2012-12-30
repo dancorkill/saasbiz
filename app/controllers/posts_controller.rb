@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
+		@post = Post.find_by_slug(params[:id])
 		@comment = ""
 
 		respond_to do |format|
@@ -40,15 +40,26 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		@post = Post.find(params[:id])
+		@post = Post.find_by_slug(params[:id])
 	end
 
 	def update
-		@post = Post.find(params[:id])
+		@post = Post.find_by_slug(params[:id])
 
 		respond_to do |f|
 			if @post.update_attributes(params[:post])
 			f.html { redirect_to @post, notice: 'Boom post was edited' }
+			else
+			end
+		end
+	end
+
+	def destroy
+		@post = Post.find_by_slug(params[:id])
+
+		respond_to do |f|
+			if @post.destroy
+				f.html {redirect_to root_path, notice: 'Post was deleted'}
 			else
 			end
 		end

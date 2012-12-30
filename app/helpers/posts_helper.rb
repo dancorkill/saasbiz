@@ -6,4 +6,12 @@ module PostsHelper
 			return "http://" + post.url
 		end
 	end
+
+	def post_url_no_http(post)
+		if post.url.starts_with?("http://" || "https://" || "www.")
+			return post.url.sub("http://","")
+		else
+			return post.url
+		end
+	end
 end
