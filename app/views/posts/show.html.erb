@@ -1,13 +1,14 @@
 <h1><a href="<%= post_url(@post) %>"><%= @post.title %></a></h1>
-<p>Comments: <%= @post.comments.count %><br/>
 
-</p>
 <p><%= link_to 'edit this post', edit_post_path %> or 
 	<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	<p>Comments: <%= @post.comments.count %><br/></p>
+
+<hr>
 
 <% @post.comments.each do |x| %>
 	<div class="comment">
-		<p><a href="#"><span class="username">username</span></a> <span class="timeposted">
+		<p class="userinfo"><a href="#"><span class="username">username</span></a> <span class="timeposted">
 			posted <%= distance_of_time_in_words(Time.now, x.created_at, true) %> ago</span></p>
 		<p><%= x.content %></p>
 	</div>

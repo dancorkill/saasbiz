@@ -13,6 +13,11 @@ div .title {
 	margin-bottom:0px;
 }
 
+.userinfo {
+	margin-bottom: 0px;
+	font-size: small;
+}
+
 .timeposted {
-	color: light-grey;
+	color: #888;
 }
