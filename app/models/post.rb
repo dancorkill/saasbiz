@@ -13,9 +13,7 @@ class Post < ActiveRecord::Base
 	has_many :votes
 
 
-	def votes_score
-		votes.count(:conditions => "direction == 1")  - votes.count(:conditions => "direction == -1")
-	end
+	
 
 end
 
