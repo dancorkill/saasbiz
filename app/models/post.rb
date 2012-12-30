@@ -13,7 +13,9 @@ class Post < ActiveRecord::Base
 	has_many :votes
 
 
-	
+	def votes_score
+		return 5
+	end
 
 end
 
