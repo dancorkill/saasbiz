@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
 
 
 	def votes_score
-		return 5
+		votes.count(:conditions => direction == 1)  - votes.count(:conditions => direction == -1)
 	end
 
 end
