@@ -15,11 +15,11 @@ module PostsHelper
 		end
 	end
 
-	def post_url_with_http(post)
-		if post.url.starts_with?("http://" || "https://")
-			return post.url
+	def post_url_with_http(url)
+		if url.starts_with?("http://" || "https://")
+			return url
 		else
-			return post.url.prepend("http://")
+			return url.prepend("http://")
 		end
 	end
 

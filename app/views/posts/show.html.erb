@@ -5,7 +5,7 @@
 <p><%= link_to 'edit this post', edit_post_path %> or 
 	<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 	<p>Comments: <%= @post.comments.count %><br/>
-	Facebook Shares: <%= @post.shares(post_url_with_http(@post)) %>
+	Facebook Shares: <%= @post.shares(post_url_with_http(@post.url)) %>
 	</p>
 
 <hr>
