@@ -26,6 +26,11 @@ class Post < ActiveRecord::Base
 		self.slug = self.title.parameterize
 	end
 
+	def shares(url)
+		returnedhash = HTTParty.get('http://graph.facebook.com/?id=' + url)
+		return returnedhash['shares']
+	end
+
 end
 
 
