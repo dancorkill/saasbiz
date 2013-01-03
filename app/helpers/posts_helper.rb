@@ -19,7 +19,7 @@ module PostsHelper
 		if url.starts_with?("http://" || "https://")
 			return url
 		else
-			return url.prepend("http://")
+			return url.insert 0, "http://"
 		end
 	end
 
