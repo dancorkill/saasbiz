@@ -1,4 +1,4 @@
-<% @posts.each do |post| %>
+<% @posts.sort_by {|post| post.votes_score}.reverse.each do |post| %>
 	<div class="entry" style="">
 		<div class="votes" style="float:left;">
 			<%= link_to post_votes_path(post, direction: "upvote"), :method => :post do %>
