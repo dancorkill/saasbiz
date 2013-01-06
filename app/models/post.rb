@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	attr_accessible :title, :url
+	attr_accessible :title, :url, :upvote_counter, :downvote_counter
 
 	validates :title, presence: true
 	validates :title, length: { minimum: 2 }
@@ -14,8 +14,10 @@ class Post < ActiveRecord::Base
 
 	before_create :create_slug
 
+	default_scope :order => 'updated_at DESC'
+
 	def votes_score
-		votes.count(:conditions => ["direction = 1"]) - votes.count(:conditions => ["direction = -1"])
+		upvote_counter - downvote_counter
 	end
 
 	def to_param

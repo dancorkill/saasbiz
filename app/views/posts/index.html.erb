@@ -1,12 +1,12 @@
 <% @posts.each do |post| %>
 	<div class="entry" style="">
 		<div class="votes" style="float:left;">
-			<%= link_to post_votes_path(post, direction: 1), :method => :post do %>
+			<%= link_to post_votes_path(post, direction: "upvote"), :method => :post do %>
 				<i class="icon-arrow-up"></i><% end %><br/>
 
 			<span style="font-size:16px; margin-left:2px;"><%= post.votes_score %></span><br/>
 
-			<%= link_to post_votes_path(post, direction: -1), :method => :post do %>
+			<%= link_to post_votes_path(post, direction: "downvote"), :method => :post do %>
 				<i class="icon-arrow-down"></i><% end %>
 
 		</div>
