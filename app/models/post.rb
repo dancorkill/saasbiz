@@ -12,9 +12,14 @@ class Post < ActiveRecord::Base
 	has_many :comments
 	has_many :votes
 
-	before_create :create_slug
+	before_create :create_slug, :set_counters
 
 	default_scope :order => 'updated_at DESC'
+
+	def set_counters
+		self.upvote_counter = 0
+		self.downvote_counter = 0
+	end
 
 	def votes_score
 		upvote_counter - downvote_counter

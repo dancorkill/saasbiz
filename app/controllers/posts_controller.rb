@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_filter :posts_find, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@posts = Post.all
 
@@ -9,7 +11,6 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find_by_slug(params[:id])
 		@comment = ""
 
 		respond_to do |format|
@@ -40,12 +41,10 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		@post = Post.find_by_slug(params[:id])
+	
 	end
 
 	def update
-		@post = Post.find_by_slug(params[:id])
-
 		respond_to do |f|
 			if @post.update_attributes(params[:post])
 			f.html { redirect_to @post, notice: 'Boom post was edited' }
@@ -55,8 +54,6 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find_by_slug(params[:id])
-
 		respond_to do |f|
 			if @post.destroy
 				f.html {redirect_to root_path, notice: 'Post was deleted'}
@@ -64,5 +61,10 @@ class PostsController < ApplicationController
 			end
 		end
 	end
+
+	def posts_find
+		@post = Post.find_by_slug(params[:id])
+	end
+
 
 end
