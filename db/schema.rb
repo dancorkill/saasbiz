@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130106204737) do
+ActiveRecord::Schema.define(:version => 20130112152139) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20130106204737) do
     t.string   "slug"
     t.integer  "upvote_counter"
     t.integer  "downvote_counter"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "password_digest"
+    t.string   "username"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "votes", :force => true do |t|
