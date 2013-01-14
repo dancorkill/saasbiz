@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
 	#validates_format_of :url, :with =>
 	#URI::regexp(%w(http https))
 
+	belongs_to :user
+
 	has_many :comments
 	has_many :votes
 

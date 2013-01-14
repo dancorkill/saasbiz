@@ -2,8 +2,15 @@
 
 <h1><a href="<%= post_url(@post) %>"><%= @post.title %></a></h1>
 
-<p><%= link_to 'edit this post', edit_post_path %> or 
+<p>
+	<% if logged_in? && User.find(session[:user_id]) == @post.user_id %>
+	<%= link_to 'edit this post', edit_post_path %> or 
 	<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	<% elsif User.find(@post[:user_id]).nil? %>
+	<% else %>
+	Posted by: <%= User.find(@post[:user_id]).username %>
+	<% end %>
+
 	<p>Comments: <%= @post.comments.count %><br/>
 	Facebook Shares: <%= @post.shares(post_url_with_http(@post.url)) %>
 	</p>

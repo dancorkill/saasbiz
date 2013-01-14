@@ -4,6 +4,12 @@ CourseProject::Application.routes.draw do
   	resources :votes
   end
 
+  resources :users do
+    resources :comments
+    resources :votes
+    resources :posts
+  end
+
   resources :users
 
   root to: "posts#index"

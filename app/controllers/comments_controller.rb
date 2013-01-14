@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+	before_filter :require_user, only: [:new, :create, :edit, :update, :destroy]
+	
 	def create
 		@post = Post.find_by_slug(params[:post_id])
 		@comment = @post.comments.create(params[:comment])

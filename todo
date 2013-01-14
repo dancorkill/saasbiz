@@ -1,0 +1,14 @@
+1. Setup the link between username and posts, comments and votes in model (nested resources in routes file?) -done
+
+2. Add a foreign key column to posts. -done
+
+3. Foreign key to populate when posts.
+
+4. Add username to post view
+
+5. Restrict creating posts to people that are logged in.
+
+6. Improve the UI so it prompts to login before you try to post.
+
+
+Repeat for comments and votes.
