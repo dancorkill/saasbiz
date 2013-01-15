@@ -2,13 +2,13 @@
 
 2. Add a foreign key column to posts. -done
 
-3. Foreign key to populate when posts.
+3. Foreign key to populate when posts. - done
 
-4. Add username to post view
+4. Add username to post view -done
 
-5. Restrict creating posts to people that are logged in.
+5. Restrict creating posts to people that are logged in. -done
 
-6. Improve the UI so it prompts to login before you try to post.
+6. Improve the UI so it prompts to login before you try to comment.
 
 
 Repeat for comments and votes.
