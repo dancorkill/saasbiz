@@ -6,7 +6,7 @@
 	<% if logged_in? && User.find(session[:user_id]) == @post.user_id %>
 	<%= link_to 'edit this post', edit_post_path %> or 
 	<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-	<% elsif User.find(@post[:user_id]).nil? %>
+	<% elsif User.find(@post[:user_id]).nil? rescue nil %>
 	<% else %>
 	Posted by: <%= User.find(@post[:user_id]).username rescue nil %>
 	<% end %>
