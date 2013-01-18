@@ -3,12 +3,12 @@
 <h1><a href="<%= post_url(@post) %>"><%= @post.title %></a></h1>
 
 <p>
-	<% if logged_in? && User.find(session[:user_id]) == @post.user_id %>
+	<% if logged_in? && session[:user_id] == @post.user_id %>
 	<%= link_to 'edit this post', edit_post_path %> or 
 	<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-	<% elsif User.find(@post[:user_id]).nil? rescue nil %>
+	<% elsif User.find(@post[:user_id]).nil? %>
 	<% else %>
-	Posted by: <%= User.find(@post[:user_id]).username rescue nil %>
+	Posted by: <%= User.find(@post[:user_id]).username %>
 	<% end %>
 
 	<p>Comments: <%= @post.comments.count %><br/>
@@ -17,9 +17,10 @@
 
 <hr>
 
+
 <% @post.comments.each do |x| %>
 	<div class="comment">
-		<p class="userinfo"><a href="#"><span class="username">username</span></a> <span class="timeposted">
+		<p class="userinfo"><a href="#"><span class="username"><%= User.find(x[:user_id]).username rescue nil %></span></a> <span class="timeposted">
 			posted <%= distance_of_time_in_words(Time.now, x.created_at, true) %> ago</span></p>
 		<p><%= x.content %></p>
 	</div>
@@ -27,4 +28,8 @@
 
 <hr>
 
+<% if logged_in? %>
 <%= render 'commentform' %>
+<% else %>
+You must <%= link_to "Login", login_path %> or <%= link_to "Register", register_path %> to leave a comment
+<% end %>

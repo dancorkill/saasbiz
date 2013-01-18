@@ -5,8 +5,11 @@
 	<%= f.text_area :content %></br>
 </div>
 
+	<%= f.hidden_field :user_id, as: :hidden, value: session[:user_id] %></br>
+
 <div class="submit">
 	<%= f.submit "Leave Comment" %>
 </div>
 <% end %>
+
 

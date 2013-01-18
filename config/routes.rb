@@ -9,7 +9,7 @@ CourseProject::Application.routes.draw do
     resources :votes
     resources :posts
   end
-
+  
   resources :users
 
   root to: "posts#index"
