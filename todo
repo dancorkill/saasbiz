@@ -8,7 +8,17 @@
 
 5. Restrict creating posts to people that are logged in. -done
 
-6. Improve the UI so it prompts to login before you try to comment.
+6. Improve the UI so it prompts to login before you try to comment or vote.
 
 
-Repeat for comments and votes.
+Repeat for votes.
+
+comments belongs_to user
+user has_many comments
+
+
+
+Add a profile page that displays comments and posts.
+
+
+Also have the profile page display the usernames twitter feed.
