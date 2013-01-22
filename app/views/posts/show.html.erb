@@ -8,7 +8,7 @@
 	<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 	<% elsif User.find(@post[:user_id]).nil? %>
 	<% else %>
-	Posted by: <a href="#"><%= User.find(@post[:user_id]).username %></a>
+	Posted by: <%= link_to User.find(@post[:user_id]).username, user_path(User.find(@post[:user_id]).username) %></a>
 	<% end %>
 
 	<p>Comments: <%= @post.comments.count %><br/>
@@ -20,7 +20,7 @@
 
 <% @post.comments.each do |x| %>
 	<div class="comment">
-		<p class="userinfo"><a href="#"><span class="username"><%= User.find(x[:user_id]).username rescue nil %></span></a> <span class="timeposted">
+		<p class="userinfo"><span class="username"><%= link_to x.user.username, user_path(x.user.username) %></span> <span class="timeposted">
 			posted <%= distance_of_time_in_words(Time.now, x.created_at, true) %> ago</span></p>
 		<p><%= x.content %></p>
 	</div>
