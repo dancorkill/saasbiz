@@ -21,3 +21,18 @@ div .title {
 .timeposted {
 	color: #888;
 }
+
+#tweets li {
+	margin-bottom:10px;
+	list-style: none;
+}
+
+#name img {
+	float:left;
+	margin-right: 10px;
+}
+
+#name {
+	clear:both;
+	height: 80px;
+}

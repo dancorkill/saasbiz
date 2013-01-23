@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
 gem 'httparty'
 gem 'counter_culture', '~> 0.1.7'
+gem 'twitter'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
