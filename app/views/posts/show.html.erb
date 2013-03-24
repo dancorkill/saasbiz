@@ -11,7 +11,8 @@
 	Posted by: <%= link_to User.find(@post[:user_id]).username, user_path(User.find(@post[:user_id]).username) %></a>
 	<% end %>
 
-	<p>Comments: <%= @post.comments.count %><br/>
+	<p>Points: <%= @post.votes_score %><br/>
+		Comments: <%= @post.comments.count %><br/>
 	Facebook Shares: <%= @post.shares(post_url_with_http(@post.url)) %>
 	</p>
 
@@ -20,7 +21,13 @@
 
 <% @post.comments.each do |x| %>
 	<div class="comment">
-		<p class="userinfo"><span class="username"><%= link_to x.user.username, user_path(x.user.username) %></span> <span class="timeposted">
+		<p class="userinfo">
+			<% if x.user.blank? %>
+			<span class="username">Anon</span>
+			<% else %>
+			<span class="username"><%= link_to x.user.username, user_path(x.user.username) %></span>
+			<% end %>
+		 	<span class="timeposted">
 			posted <%= distance_of_time_in_words(Time.now, x.created_at, true) %> ago</span></p>
 		<p><%= x.content %></p>
 	</div>

@@ -37,7 +37,14 @@ class Post < ActiveRecord::Base
 
 	def shares(url)
 		returnedhash = HTTParty.get('http://graph.facebook.com/?id=' + url)
-		return returnedhash['shares']
+		
+		if returnedhash.code == 200
+				return returnedhash['shares']
+			
+			else
+				return "Error"
+		end
+
 	end
 
 end

@@ -4,7 +4,7 @@
 <img src="<%= bigurl %>" />
 <h1><%= @user.username %></h1>
 </div>
-
+<hr>
 <h3>Posts</h3>
 <% @user.posts.each do |p| %>
 	<p><%= link_to p.title, p %></p>

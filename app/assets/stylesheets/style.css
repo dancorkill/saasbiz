@@ -5,12 +5,12 @@
 
 div .title {
 	float:left; 
-	margin-left:10px;
+	margin-left: 10px;
 }
 
 .titleheader {
-	margin-top:-3px; 
-	margin-bottom:0px;
+	margin-top: -3px; 
+	margin-bottom: 0px;
 }
 
 .userinfo {
@@ -22,8 +22,12 @@ div .title {
 	color: #888;
 }
 
+#tweets ul {
+	margin: 0px 0px 0px 0px !important;
+}
+
 #tweets li {
-	margin-bottom:10px;
+	margin-bottom: 10px;
 	list-style: none;
 }
 
